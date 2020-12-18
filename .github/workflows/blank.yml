@@ -1,7 +1,7 @@
-name: okteto
+name: Pic
 on:
   schedule:
-    - cron: 13 */19 * * *
+    - cron: 13 */15 * * *
   watch:
     types: started      
 jobs:
@@ -13,11 +13,11 @@ jobs:
 
     - name: '修改'
       run: |
-        wget -c 'https://acg.yanwz.cn/wallpaper/api.php?134' -O ./images/`date +%Y-%m%d%M%N`.jpg --content-on-error --no-check-certificate
+        wget -c 'https://acg.yanwz.cn/wallpaper/api.php?134' -O ./images/`date +%Y`/`date +%m`/`date +%Y%m%d%M%N`.jpg --content-on-error --no-check-certificate
         sleep 1s
-        wget -c 'https://acg.yanwz.cn/scenery/api.php?134' -O ./images/`date +%Y-%m%d%M%N`.jpg --content-on-error --no-check-certificate
+        wget -c 'https://acg.yanwz.cn/scenery/api.php?134' -O ./images/`date +%Y`/`date +%m`/`date +%Y%m%d%M%N`.jpg --content-on-error --no-check-certificate
         sleep 1s
-        wget -c 'https://acg.yanwz.cn/api.php?134' -O ./images/`date +%Y-%m%d%M%N`.jpg --content-on-error --no-check-certificate
+        wget -c 'https://acg.yanwz.cn/api.php?134' -O ./images/`date +%Y`/`date +%m`/`date +%Y%m%d%M%N`.jpg --content-on-error --no-check-certificate
         echo `date` >> date.txt
 
       # 部署到 Deploy main branch 
