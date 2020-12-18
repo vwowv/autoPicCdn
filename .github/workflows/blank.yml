@@ -13,6 +13,7 @@ jobs:
 
     - name: '修改'
       run: |
+        mkdir -p ./images/`date +%Y`/`date +%m`
         wget -c 'https://acg.yanwz.cn/wallpaper/api.php?134' -O ./images/`date +%Y`/`date +%m`/`date +%Y%m%d%M%N`.jpg --content-on-error --no-check-certificate
         sleep 1s
         wget -c 'https://acg.yanwz.cn/scenery/api.php?134' -O ./images/`date +%Y`/`date +%m`/`date +%Y%m%d%M%N`.jpg --content-on-error --no-check-certificate
