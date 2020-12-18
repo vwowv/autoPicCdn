@@ -1,0 +1,30 @@
+name: okteto
+on:
+  schedule:
+    - cron: 13 */19 * * *
+  watch:
+    types: started      
+jobs:
+  build:
+    runs-on: ubuntu-latest  
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: '修改'
+      run: |
+        #wget -c 'https://api.ixiaowai.cn/api/api.php?134' -O ./images/`date +%s`.jpg --content-on-error --no-check-certificate
+        echo `date` >> date.txt
+
+      # 部署到 Deploy main branch 
+    - name: Deploy main branch 
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.ACCESS_TOKEN }}
+        publish_dir: .
+        keep_files: true
+        publish_branch: pic
+        #destination_dir: test
+        enable_jekyll: false
+        exclude_assets: ''
+        
